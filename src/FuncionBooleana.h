@@ -11,7 +11,10 @@ class FuncionBooleana {
     bool valorVerdad;
     bool variableA, variableB, variableC;
     public: 
-        FuncionBooleana(string ff, bool a, bool b, bool c);
+        FuncionBooleana(string ff, bool a, bool b, bool c) {
+            formulaFuncion = ff; listaMinterminos = new Lista(); valorVerdad = false;
+            variableA = a; variableB = b; variableC = c;  
+        };
         ~FuncionBooleana() { delete listaMinterminos; };
         bool getValorVerdad() { return valorVerdad; };
         bool getVariableA() { return variableA; };
