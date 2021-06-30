@@ -13,3 +13,16 @@ void Lista :: agregarMintermino(Mintermino *m) {
         temp -> setSiguiente(nuevo);
     }
 }
+
+void Lista :: imprimirLista() {
+    Nodo *temp = cabeza;
+    if(temp == nullptr)
+        cout << "Lista vacia";
+    else {
+        while(temp != nullptr) {
+            cout << temp -> getMintermino() -> getFormula() << "->";
+            temp = temp -> getSiguiente();
+        }
+        cout << "NULL";
+    }
+}
