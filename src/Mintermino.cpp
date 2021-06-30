@@ -16,9 +16,9 @@ int Mintermino :: longitud() {
 }
 
 void Mintermino :: cambiarValoresVerdad(bool introducidos[], bool determinados[]) {
-    int longitudDeterminados = sizeof(determinados) / sizeof(determinados[0]);
-    for(int i = 0; i , longitudDeterminados; i++) {
-        if(introducidos[i] = false) {
+    int longitudDeterminados = longitud();
+    for(int i = 0; i < longitudDeterminados; i++) {
+        if(introducidos[i] == false) {
             if(determinados[i] == true)
                 determinados[i] = false;
             else
@@ -43,9 +43,9 @@ void Mintermino :: evaluar() {
     }
     cambiarValoresVerdad(valoresIntroducidos, valoresDeterminados);
     int j = 0;
-    while(getValorVerdad() && j < sizeof(valoresDeterminados) / sizeof(valoresDeterminados[0])) {
+    while(getValorVerdad() || j < sizeof(valoresDeterminados) / sizeof(valoresDeterminados[0])) {
         if(valoresDeterminados[j] == false)
-            setValorVerdad(false);
+            setValorVerdad(false); 
         j++;
     }
 }
