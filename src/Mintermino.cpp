@@ -29,7 +29,7 @@ void Mintermino :: cambiarValoresVerdad(bool introducidos[], bool determinados[]
 
 void Mintermino :: evaluar() {
     bool valoresIntroducidos[2];
-    bool valoresDeterminados[longitud(formulaMintermino)];
+    bool valoresDeterminados[longitud()];
     valoresIntroducidos[0] = introducidoA;
     valoresIntroducidos[1] = introducidoB;
     valoresIntroducidos[2] = introducidoC;
