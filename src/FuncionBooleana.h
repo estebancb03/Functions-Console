@@ -22,7 +22,7 @@ class FuncionBooleana {
         bool getVariableC() { return variableC; };
         string getFormula() { return formulaFuncion; };
         Lista *getListaMinterminos() { return listaMinterminos; };
-        void setValorVerda(bool v) { valorVerdad = v; };
+        void setValorVerdad(bool v) { valorVerdad = v; };
         void seleccionarMinterminos();
         void evaluar();
 };
