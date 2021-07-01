@@ -1,8 +1,6 @@
 #include <iostream>
-#include <string.h>
 #include <sstream>
 #include "FuncionBooleana.h"
-#include "Lista.h"
 using namespace std;
 
 void FuncionBooleana :: seleccionarMinterminos() {
