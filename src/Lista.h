@@ -8,7 +8,7 @@ class Lista {
         Lista() { cabeza = nullptr; };
         ~Lista() { delete cabeza; };
         void agregarMintermino(Mintermino *m);
-        void getValoresVerdad();
+        void getValoresVerdad(bool arrayVerdades[]);
         void imprimirLista();
         int longitud();
 };
