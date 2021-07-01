@@ -15,35 +15,21 @@ int Mintermino :: longitud() {
     return cont;
 }
 
-void Mintermino :: cambiarValoresVerdad(bool introducidos[], bool determinados[]) {
-    int longitudDeterminados = longitud();
-    for(int i = 0; i < longitudDeterminados; i++) {
-        if(introducidos[i] == false) {
-            if(determinados[i] == true)
-                determinados[i] = false;
-            else
-                determinados[i] = true;
-        }
-    }
-}
-
 void Mintermino :: evaluar() {
-    bool valoresIntroducidos[2];
-    bool valoresDeterminados[longitud()];
-    valoresIntroducidos[0] = introducidoA;
-    valoresIntroducidos[1] = introducidoB;
-    valoresIntroducidos[2] = introducidoC;
+    bool valoresIntroducidos[3] = { introducidoA, introducidoB, introducidoC };
+    bool valoresDeterminados[longitud()] = { introducidoA, introducidoB, introducidoC };
+    int cont = 0;
     for(int i = 0; i < formulaMintermino.length(); i++) {
-        if(i < formulaMintermino.length() - 1 && !isalpha(formulaMintermino[i + 1])) {
-            valoresDeterminados[i] = false;
-            i++;
+        if(!isalpha(formulaMintermino[i])) {
+            cont++;
+            if(valoresDeterminados[i - cont] == true)
+                valoresDeterminados[i - cont] = false;
+            else
+                valoresDeterminados[i - cont] = true;
         }
-        else
-            valoresDeterminados[i] = true;
     }
-    cambiarValoresVerdad(valoresIntroducidos, valoresDeterminados);
     int j = 0;
-    while(getValorVerdad() || j < sizeof(valoresDeterminados) / sizeof(valoresDeterminados[0])) {
+    while(j < 3) {
         if(valoresDeterminados[j] == false)
             setValorVerdad(false); 
         j++;
