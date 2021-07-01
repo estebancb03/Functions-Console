@@ -12,7 +12,6 @@ class Mintermino {
         ~Mintermino();
         void evaluar();
         int longitud();
-        void cambiarValoresVerdad(bool introducidos[], bool determinados[]);
         void setValorVerdad(bool v) { valorVerdad = v; };
         bool getValorVerdad() { return valorVerdad; };
         string getFormula() { return formulaMintermino; };
