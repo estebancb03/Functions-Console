@@ -26,3 +26,13 @@ void Lista :: imprimirLista() {
         cout << "NULL";
     }
 }
+
+int Lista :: longitud() {
+    int cont = 0;
+    Nodo *temp = cabeza;
+    while(temp != nullptr) {
+        cont++;
+        temp = temp -> getSiguiente();
+    }
+        return cont;
+}
