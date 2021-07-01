@@ -11,7 +11,11 @@ int main() {
 	cout << "Valor C = "; cin >> c; cout << endl;	
 	FuncionBooleana *funcion = new FuncionBooleana(formula, a, b, c);
 	funcion -> seleccionarMinterminos();
-	//funcion -> getListaMinterminos() -> imprimirLista();
-	
+	funcion -> evaluar();
+	cout << "f(a,b,c) = ";
+	if(funcion -> getValorVerdad())
+		cout << "True";
+	else
+		cout << "False";
 	return 0;
 }
