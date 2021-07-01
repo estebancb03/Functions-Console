@@ -36,3 +36,13 @@ int Lista :: longitud() {
     }
         return cont;
 }
+
+void Lista :: getValoresVerdad(bool arrayVerdades[]) {
+    int i = 0;
+    Nodo *temp = cabeza;
+    while(temp != nullptr) {
+        arrayVerdades[i] = temp -> getMintermino() -> getValorVerdad();  
+        temp = temp -> getSiguiente();
+        i++;
+    }
+}
