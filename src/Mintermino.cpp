@@ -8,9 +8,9 @@ void Mintermino :: evaluar() {
     int cont = 0;
     llenarListaVariables();
     estandarizar();
-    bool determinados[3] = { variables ->getValorVerdad("a"), variables -> getValorVerdad("b"), variables -> getValorVerdad("c") };
+    bool determinados[4] = { variables -> getValorVerdad("a"), variables -> getValorVerdad("b"), variables -> getValorVerdad("c"), variables -> getValorVerdad("d") };
     cout << "Formula revisada = " << formulaMintermino << endl;
-    cout << "Valores NO revisados = " << determinados[0] << determinados[1] << determinados[2] << endl;
+    cout << "Valores NO revisados = " << determinados[0] << determinados[1] << determinados[2] << determinados[3] << endl;
     for(int i = 0; i < formulaMintermino.length(); i++) {
         if(!isalpha(formulaMintermino[i])) {
             cont++;
@@ -20,9 +20,9 @@ void Mintermino :: evaluar() {
                 determinados[i - cont] = true;
         }
     }
-    cout << "Valores revisados = " << determinados[0] << determinados[1] << determinados[2] << endl;
+    cout << "Valores revisados = " << determinados[0] << determinados[1] << determinados[2] << determinados[3] << endl;
     int j = 0;
-    while(j < 3) {
+    while(j < 4) {
         if(determinados[j] == false)
             setValorVerdad(false);
         j++;
@@ -48,15 +48,20 @@ void Mintermino :: llenarListaVariables() {
             if(variable.find("b") != string :: npos) {
                 variables -> agregarVariable(variable, introducidoB);
             }
-            else if(variable.find("c") != string :: npos) {
-                variables -> agregarVariable(variable, introducidoC);
+            else {
+                if(variable.find("c") != string :: npos) {
+                    variables -> agregarVariable(variable, introducidoC);
+                }
+                else if(variable.find("d") != string :: npos) {
+                    variables -> agregarVariable(variable, introducidoD);
+                }
             }
         }
     }
 }
 
 string Mintermino :: averiguaFaltantes() {
-    string variablesPosibles = "abc";
+    string variablesPosibles = "abcd";
     string variableCiclo;
     string faltantes;
     for(int i = 0; i < variablesPosibles.length(); i++) {
@@ -82,5 +87,6 @@ void Mintermino :: estandarizar() {
     formulaMintermino = "";
     formulaMintermino += variables -> getVariable("a");
     formulaMintermino += variables -> getVariable("b");
-    formulaMintermino += variables -> getVariable("c"); 
+    formulaMintermino += variables -> getVariable("c");
+    formulaMintermino += variables -> getVariable("d"); 
 }
