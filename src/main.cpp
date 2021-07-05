@@ -3,17 +3,18 @@
 using namespace std;
 
 int main() {
-	bool a, b, c;
+	bool a, b, c, d;
 	string formula = "";
-	cout << "f(a,b,c) = "; cin >> formula; cout << endl;
+	cout << "f(a,b,c,d) = "; cin >> formula; cout << endl;
 	cout << "Valor A = "; cin >> a;
 	cout << "Valor B = "; cin >> b;
-	cout << "Valor C = "; cin >> c;	
+	cout << "Valor C = "; cin >> c;
+	cout << "Valor D = "; cin >> d;	
 	cout << endl;
-	FuncionBooleana *funcion = new FuncionBooleana(formula, a, b, c);
+	FuncionBooleana *funcion = new FuncionBooleana(formula, a, b, c, d);
 	funcion -> seleccionarMinterminos();
 	funcion -> evaluar();
-	cout << "f(a,b,c) = ";
+	cout << "f(a,b,c,d) = ";
 	if(funcion -> getValorVerdad())
 		cout << "True";
 	else
