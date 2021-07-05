@@ -4,34 +4,83 @@
 #include "Mintermino.h"
 using namespace std;
 
-int Mintermino :: longitud() {
-    int cont = 0;
-    for(int i = 0; i < formulaMintermino.length(); i++) {
-        if(i < formulaMintermino.length() - 1 && isalpha(formulaMintermino[i + 1]))
-            cont++;
-        else
-            i++;
-    }
-    return cont;
-}
-
 void Mintermino :: evaluar() {
-    bool valoresIntroducidos[3] = { introducidoA, introducidoB, introducidoC };
-    bool valoresDeterminados[longitud()] = { introducidoA, introducidoB, introducidoC };
     int cont = 0;
+    llenarListaVariables();
+    estandarizar();
+    bool determinados[3] = { variables ->getValorVerdad("a"), variables -> getValorVerdad("b"), variables -> getValorVerdad("c") };
+    cout << "Formula revisada = " << formulaMintermino << endl;
+    cout << "Valores NO revisados = " << determinados[0] << determinados[1] << determinados[2] << endl;
     for(int i = 0; i < formulaMintermino.length(); i++) {
         if(!isalpha(formulaMintermino[i])) {
             cont++;
-            if(valoresDeterminados[i - cont] == true)
-                valoresDeterminados[i - cont] = false;
+            if(determinados[i - cont] == true)
+                determinados[i - cont] = false;
             else
-                valoresDeterminados[i - cont] = true;
+                determinados[i - cont] = true;
         }
     }
+    cout << "Valores revisados = " << determinados[0] << determinados[1] << determinados[2] << endl;
     int j = 0;
     while(j < 3) {
-        if(valoresDeterminados[j] == false)
-            setValorVerdad(false); 
+        if(determinados[j] == false)
+            setValorVerdad(false);
         j++;
     }
+    cout << "Valor Mintermino = " << getValorVerdad() << endl << endl;
+}
+
+void Mintermino :: llenarListaVariables() {
+    string variable;
+    for(int i = 0; i < formulaMintermino.length(); i++) {
+        if(i < formulaMintermino.length() - 1 && !isalpha(formulaMintermino[i + 1])) {
+            variable = "";
+            variable += formulaMintermino[i];
+            variable += formulaMintermino[i + 1];
+            i++;
+        }
+        else 
+            variable = formulaMintermino[i];
+        if(variable.find("a") != string :: npos) {
+            variables -> agregarVariable(variable, introducidoA);
+        }
+        else {
+            if(variable.find("b") != string :: npos) {
+                variables -> agregarVariable(variable, introducidoB);
+            }
+            else if(variable.find("c") != string :: npos) {
+                variables -> agregarVariable(variable, introducidoC);
+            }
+        }
+    }
+}
+
+string Mintermino :: averiguaFaltantes() {
+    string variablesPosibles = "abc";
+    string variableCiclo;
+    string faltantes;
+    for(int i = 0; i < variablesPosibles.length(); i++) {
+        variableCiclo = variablesPosibles[i];
+        if(variables -> encontrar(variableCiclo) == false)
+            faltantes += variableCiclo;
+    }
+    return faltantes;
+}
+
+void Mintermino :: estandarizar() {
+    string faltantes;
+    string variable;
+    int preLongitud = variables -> longitud();
+    cout << "Formula NO revisada = " << formulaMintermino << endl;
+    if(preLongitud != 3) {
+        faltantes = averiguaFaltantes();
+        for(int i = 0; i < faltantes.length(); i++) {
+            variable =  faltantes[i];
+            variables -> agregarVariable(variable, true);
+        }
+    } 
+    formulaMintermino = "";
+    formulaMintermino += variables -> getVariable("a");
+    formulaMintermino += variables -> getVariable("b");
+    formulaMintermino += variables -> getVariable("c"); 
 }

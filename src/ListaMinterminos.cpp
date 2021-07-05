@@ -1,10 +1,10 @@
 #include <iostream>
-#include "Lista.h"
+#include "ListaMinterminos.h"
 using namespace std;
 
-void Lista :: agregarMintermino(Mintermino *m) {
-    Nodo *temp = cabeza;
-    Nodo *nuevo = new Nodo(m);
+void ListaMinterminos :: agregarMintermino(Mintermino *m) {
+    NodoMinterminos *temp = cabeza;
+    NodoMinterminos *nuevo = new NodoMinterminos(m);
     if(temp == nullptr)
         cabeza = nuevo;
     else {
@@ -14,8 +14,8 @@ void Lista :: agregarMintermino(Mintermino *m) {
     }
 }
 
-void Lista :: imprimirLista() {
-    Nodo *temp = cabeza;
+void ListaMinterminos :: imprimirLista() {
+    NodoMinterminos *temp = cabeza;
     if(temp == nullptr)
         cout << "Lista vacia";
     else {
@@ -27,9 +27,9 @@ void Lista :: imprimirLista() {
     }
 }
 
-int Lista :: longitud() {
+int ListaMinterminos :: longitud() {
     int cont = 0;
-    Nodo *temp = cabeza;
+    NodoMinterminos *temp = cabeza;
     while(temp != nullptr) {
         cont++;
         temp = temp -> getSiguiente();
@@ -37,9 +37,9 @@ int Lista :: longitud() {
         return cont;
 }
 
-void Lista :: getValoresVerdad(bool arrayVerdades[]) {
+void ListaMinterminos :: getValoresVerdad(bool arrayVerdades[]) {
     int i = 0;
-    Nodo *temp = cabeza;
+    NodoMinterminos *temp = cabeza;
     while(temp != nullptr) {
         arrayVerdades[i] = temp -> getMintermino() -> getValorVerdad();  
         temp = temp -> getSiguiente();

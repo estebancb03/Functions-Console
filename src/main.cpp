@@ -6,9 +6,10 @@ int main() {
 	bool a, b, c;
 	string formula = "";
 	cout << "f(a,b,c) = "; cin >> formula; cout << endl;
-	cout << "Valor A = "; cin >> a; cout << endl;
-	cout << "Valor B = "; cin >> b; cout << endl;
-	cout << "Valor C = "; cin >> c; cout << endl;	
+	cout << "Valor A = "; cin >> a;
+	cout << "Valor B = "; cin >> b;
+	cout << "Valor C = "; cin >> c;	
+	cout << endl;
 	FuncionBooleana *funcion = new FuncionBooleana(formula, a, b, c);
 	funcion -> seleccionarMinterminos();
 	funcion -> evaluar();
@@ -17,5 +18,7 @@ int main() {
 		cout << "True";
 	else
 		cout << "False";
+	cout << endl << endl;
+	system("Pause");
 	return 0;
 }
