@@ -6,11 +6,11 @@ using namespace std;
 
 class Mintermino {
     ListaVariables *variables;
-    bool introducidoA, introducidoB, introducidoC;
+    bool introducidoA, introducidoB, introducidoC, introducidoD;
     bool valorVerdad;
     string formulaMintermino;
     public:
-        Mintermino(string fmin, bool a, bool b, bool c) { variables = new ListaVariables(); formulaMintermino = fmin; introducidoA = a; introducidoB = b; introducidoC = c; valorVerdad = true; };
+        Mintermino(string fmin, bool a, bool b, bool c, bool d) { variables = new ListaVariables(); formulaMintermino = fmin; introducidoA = a; introducidoB = b; introducidoC = c; introducidoD = d; valorVerdad = true; };
         ~Mintermino() { delete variables; };
         void evaluar();
         void estandarizar();
