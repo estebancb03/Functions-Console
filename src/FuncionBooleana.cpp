@@ -7,7 +7,7 @@ void FuncionBooleana :: seleccionarMinterminos() {
     string formula;
     stringstream ssFormula(formulaFuncion);
     while(getline(ssFormula, formula, '+')) {
-        Mintermino *m = new Mintermino(formula, variableA, variableB, variableC);
+        Mintermino *m = new Mintermino(formula, variableA, variableB, variableC, variableD);
         m -> evaluar();
         listaMinterminos -> agregarMintermino(m);
     }
