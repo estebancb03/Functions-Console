@@ -9,17 +9,14 @@ class FuncionBooleana {
     ListaMinterminos *listaMinterminos;
     string formulaFuncion;
     bool valorVerdad;
-    bool variableA, variableB, variableC;
+    bool variableA, variableB, variableC, variableD;
     public: 
-        FuncionBooleana(string ff, bool a, bool b, bool c) {
+        FuncionBooleana(string ff, bool a, bool b, bool c, bool d) {
             formulaFuncion = ff; listaMinterminos = new ListaMinterminos(); valorVerdad = false;
-            variableA = a; variableB = b; variableC = c;  
+            variableA = a; variableB = b; variableC = c, variableD = d;  
         };
         ~FuncionBooleana() { delete listaMinterminos; };
         bool getValorVerdad() { return valorVerdad; };
-        bool getVariableA() { return variableA; };
-        bool getVariableB() { return variableB; };
-        bool getVariableC() { return variableC; };
         string getFormula() { return formulaFuncion; };
         ListaMinterminos *getListaMinterminos() { return listaMinterminos; };
         void setValorVerdad(bool v) { valorVerdad = v; };
