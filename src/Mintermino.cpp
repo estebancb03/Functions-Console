@@ -22,7 +22,7 @@ void Mintermino :: evaluar() {
     }
     cout << "Valores revisados = " << determinados[0] << determinados[1] << determinados[2] << determinados[3] << endl;
     int j = 0;
-    while(j < 4) {
+    while(j < variables -> longitud()) {
         if(determinados[j] == false)
             setValorVerdad(false);
         j++;
