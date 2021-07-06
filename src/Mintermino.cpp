@@ -73,11 +73,13 @@ string Mintermino :: averiguaFaltantes() {
 }
 
 void Mintermino :: estandarizar() {
+    string variablesPosibles = "abcd";
+    string variableRecorrido;
     string faltantes;
     string variable;
     int preLongitud = variables -> longitud();
     cout << "Formula NO revisada = " << formulaMintermino << endl;
-    if(preLongitud != 3) {
+    if(preLongitud != 4) {
         faltantes = averiguaFaltantes();
         for(int i = 0; i < faltantes.length(); i++) {
             variable =  faltantes[i];
@@ -85,8 +87,8 @@ void Mintermino :: estandarizar() {
         }
     } 
     formulaMintermino = "";
-    formulaMintermino += variables -> getVariable("a");
-    formulaMintermino += variables -> getVariable("b");
-    formulaMintermino += variables -> getVariable("c");
-    formulaMintermino += variables -> getVariable("d"); 
+    for(int i = 0; i < variablesPosibles.length(); i++){
+        variableRecorrido = variablesPosibles[i];
+        formulaMintermino += variables -> getVariable(variableRecorrido);
+    }
 }
