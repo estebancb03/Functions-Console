@@ -4,11 +4,12 @@
 
 class ListaMinterminos {
     NodoMinterminos *cabeza;
+    bool valorVerad;
     public:
-        ListaMinterminos() { cabeza = nullptr; };
+        ListaMinterminos() { valorVerad = true; cabeza = nullptr; };
         ~ListaMinterminos() { delete cabeza; };
         void agregarMintermino(Mintermino *m);
-        void getValoresVerdad(bool arrayVerdades[]);
+        bool getValorVerdad() { return valorVerad; };
         void imprimirLista();
         int longitud();
 };
