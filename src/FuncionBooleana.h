@@ -10,6 +10,7 @@ class FuncionBooleana {
     string formulaFuncion;
     bool valorVerdad;
     bool variableA, variableB, variableC, variableD;
+    bool valoresVerdadMinterminos[];
     public: 
         FuncionBooleana(string ff, bool a, bool b, bool c, bool d) {
             formulaFuncion = ff; listaMinterminos = new ListaMinterminos(); valorVerdad = false;
