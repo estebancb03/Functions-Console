@@ -8,6 +8,7 @@ class ListaVariables {
         ListaVariables() { cabeza = nullptr; };
         ~ListaVariables() { delete cabeza; };
         void agregarVariable(string v, bool vv);
+        NodoVariables* getVariableNodo(string s);
         bool getValorVerdad(string v);
         string getVariable(string v);
         void imprimirLista();
