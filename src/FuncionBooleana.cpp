@@ -9,13 +9,12 @@ void FuncionBooleana :: seleccionarMinterminos() {
     while(getline(ssFormula, formula, '+')) {
         Mintermino *m = new Mintermino(formula, variableA, variableB, variableC, variableD);
         listaMinterminos -> agregarMintermino(m);
-        listaMinterminos -> getMinterminoNodo(formula) -> setValorVerdad(m -> evaluar());
-        cout << "Evaluacion: " << listaMinterminos -> getMinterminoNodo(formula) -> getValorVerdad() << endl;
     }
 }
 
 void FuncionBooleana :: evaluar() {
     int i = 0;
+    seleccionarMinterminos();
     int longitud = getListaMinterminos() -> longitud();
     bool valoresVerdadMinterminos[longitud];
     llenarValoresVerdadMinterminos(valoresVerdadMinterminos);
@@ -36,6 +35,8 @@ void FuncionBooleana :: llenarValoresVerdadMinterminos(bool array[]) {
     string formula;
     stringstream ssFormula(formulaFuncion);
     while(getline(ssFormula, formula, '+')) {
+        Mintermino *m =  new Mintermino(formula, variableA, variableB, variableC, variableD);
+        listaMinterminos -> getMinterminoNodo(formula) -> setValorVerdad(m -> evaluar());
         array[i] = listaMinterminos -> getMinterminoNodo(formula) -> getValorVerdad();
         i++;
     }
