@@ -70,3 +70,11 @@ string ListaVariables :: getVariable(string v) {
     }
     return variable;
 }
+
+NodoVariables* ListaVariables :: getVariableNodo(string s) {
+    NodoVariables *temp = cabeza;
+    while(temp -> getSiguiente() != nullptr && temp -> getVariable().find(s) == string :: npos) {
+        temp = temp -> getSiguiente();
+    }
+    return temp;
+}
