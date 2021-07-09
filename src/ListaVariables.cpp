@@ -15,16 +15,6 @@ void ListaVariables :: agregarVariable(string v, bool vv) {
     }
 }
 
-bool ListaVariables :: getValorVerdad(string v) {
-    bool valor;
-    NodoVariables *temp = cabeza;
-    while(temp != nullptr) {
-        if(temp -> getVariable().find(v) != string :: npos)
-            valor = temp -> getValorVerdad();
-        temp = temp -> getSiguiente();
-    }
-    return valor;
-}
 
 int ListaVariables :: longitud() {
     int cont = 0;
@@ -58,17 +48,6 @@ void ListaVariables :: imprimirLista() {
         }
         cout << "NULL";
     }
-}
-
-string ListaVariables :: getVariable(string v) {
-    string variable;
-    NodoVariables *temp = cabeza;
-    while(temp != nullptr) {
-        if(temp -> getVariable().find(v) != string :: npos)
-            variable = temp -> getVariable();
-        temp = temp -> getSiguiente();
-    }
-    return variable;
 }
 
 NodoVariables* ListaVariables :: getVariableNodo(string s) {
