@@ -22,6 +22,7 @@ class FuncionBooleana {
         void setValorVerdad(bool v) { valorVerdad = v; };
         void seleccionarMinterminos();
         void evaluar();
+        void llenarValoresVerdadMinterminos(bool array[]);
 };
 
 #endif 

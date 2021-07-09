@@ -4,8 +4,9 @@
 #include "Mintermino.h"
 using namespace std;
 
-void Mintermino :: evaluar() {
+bool Mintermino :: evaluar() {
     int cont = 0;
+    bool result = true;
     llenarListaVariables();
     estandarizar();
     bool determinados[4] = { variables -> getValorVerdad("a"), variables -> getValorVerdad("b"), variables -> getValorVerdad("c"), variables -> getValorVerdad("d") };
@@ -24,10 +25,11 @@ void Mintermino :: evaluar() {
     int j = 0;
     while(j < variables -> longitud()) {
         if(determinados[j] == false)
-            setValorVerdad(false);
+            result = false;
         j++;
     }
-    cout << "Valor Mintermino = " << getValorVerdad() << endl << endl;
+    cout << "Valor Mintermino = " << result << endl << endl;
+    return result;
 }
 
 void Mintermino :: llenarListaVariables() {

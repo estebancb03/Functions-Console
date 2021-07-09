@@ -37,12 +37,13 @@ int ListaMinterminos :: longitud() {
         return cont;
 }
 
-void ListaMinterminos :: getValoresVerdad(bool arrayVerdades[]) {
-    int i = 0;
+NodoMinterminos* ListaMinterminos :: getMinterminoNodo(string s) {
     NodoMinterminos *temp = cabeza;
+    NodoMinterminos *resultado;
     while(temp != nullptr) {
-        arrayVerdades[i] = temp -> getMintermino() -> getValorVerdad();  
+        if(s != temp -> getMintermino() -> getFormula())
+            resultado = temp;
         temp = temp -> getSiguiente();
-        i++;
     }
+    return resultado;
 }
