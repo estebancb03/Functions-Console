@@ -36,3 +36,11 @@ int ListaMinterminos :: longitud() {
     }
         return cont;
 }
+
+NodoMinterminos* ListaMinterminos :: getMintermino(string s) {
+    NodoMinterminos *temp = cabeza;
+    while(temp != nullptr && s != temp -> getMintermino() -> getFormula()) {
+        temp = temp -> getSiguiente();
+    }
+    return temp;
+}
