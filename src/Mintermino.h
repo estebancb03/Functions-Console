@@ -10,7 +10,7 @@ class Mintermino {
     bool valorVerdad;
     string formulaMintermino;
     public:
-        Mintermino(string fmin, bool a, bool b, bool c, bool d) { variables = new ListaVariables(); formulaMintermino = fmin; introducidoA = a; introducidoB = b; introducidoC = c; introducidoD = d; valorVerdad = false; };
+        Mintermino(string fmin, bool a, bool b, bool c, bool d) { variables = new ListaVariables(); formulaMintermino = fmin; introducidoA = a; introducidoB = b; introducidoC = c; introducidoD = d; valorVerdad = true; };
         ~Mintermino() { delete variables; };
         bool evaluar();
         void estandarizar();
@@ -18,7 +18,7 @@ class Mintermino {
         string averiguaFaltantes();
         string getFormula() { return formulaMintermino; };
         void setValorVerdad(bool vv) { valorVerdad = vv; };
-        bool getValorVeradad() { return valorVerdad; };
+        bool getValorVerdad() { return valorVerdad; };
 };
 
 #endif 
