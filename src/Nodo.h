@@ -1,5 +1,6 @@
 #ifndef NODO_H
 #define NODO_H
+#include "Mintermino.h"
 template <class T>
 
 class Nodo {
