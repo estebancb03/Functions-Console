@@ -3,9 +3,9 @@
 #include <string.h>
 using namespace std;
 
-void ListaVariables :: agregarVariable(string v, bool vv) {
+void ListaVariables :: agregarVariable(Variable *v) {
     NodoVariables *temp = cabeza;
-    NodoVariables *nuevo = new NodoVariables(v, vv);
+    NodoVariables *nuevo = new NodoVariables(v);
     if(temp == nullptr)
         cabeza = nuevo;
     else {
@@ -30,7 +30,7 @@ bool ListaVariables :: encontrar(string s) {
     bool encontrado = false;
     NodoVariables *temp = cabeza;
     while(encontrado == false && temp != nullptr) {
-        if(temp -> getVariable().find(s) != string :: npos)
+        if(temp -> getVariable() -> getLetra().find(s) != string :: npos)
             encontrado = true;
         temp = temp -> getSiguiente();
     }
@@ -43,7 +43,7 @@ void ListaVariables :: imprimirLista() {
         cout << "Lista vacia";
     else {
         while(temp != nullptr) {
-            cout << temp -> getValorVerdad() << "->";
+            cout << temp -> getVariable() -> getValorVerdad() << "->";
             temp = temp -> getSiguiente();
         }
         cout << "NULL";
@@ -52,7 +52,7 @@ void ListaVariables :: imprimirLista() {
 
 NodoVariables* ListaVariables :: getVariableNodo(string s) {
     NodoVariables *temp = cabeza;
-    while(temp -> getSiguiente() != nullptr && temp -> getVariable().find(s) == string :: npos) {
+    while(temp -> getSiguiente() != nullptr && temp -> getVariable() -> getLetra().find(s) == string :: npos) {
         temp = temp -> getSiguiente();
     }
     return temp;

@@ -3,6 +3,11 @@
 using namespace std;
 
 bool Variable :: evaluar() {
-    if(letra.find("'") != string :: npos) 
-        return false;
+    if(letra.find("'") != string :: npos) {
+        if(getValorVerdad())
+            setValorVerdad(false);
+        else
+            setValorVerdad(true);
+    }
+    return getValorVerdad();
 }
