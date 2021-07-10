@@ -1,21 +1,19 @@
 #ifndef NODOVARIABLE_H
 #define NODOVARIABLE_H
 #include <iostream>
+#include "Variable.h"
 using namespace std;
 
 class NodoVariables {
-    string variable;
-    bool valorVerdad;
+    Variable *variable;
     NodoVariables *siguiente;
     public:
-        NodoVariables(string v, bool vv) { variable = v; valorVerdad = vv; siguiente = nullptr; };
-        ~NodoVariables() { delete siguiente; };
+        NodoVariables(Variable *v) { variable = v; siguiente = nullptr; };
+        ~NodoVariables() { delete variable; delete siguiente; };
         NodoVariables *getSiguiente() { return siguiente; };
-        string getVariable() { return variable; };
-        bool getValorVerdad() { return valorVerdad; };
+        Variable *getVariable() { return variable; };
         void setSiguiente(NodoVariables *s) { siguiente = s; };
-        void setVariable(string v) { variable = v; };
-        void setValorVerdad(bool vv) { valorVerdad = vv; };
+        void setVariable(Variable *v) { variable = v; };
 };
 
 #endif
