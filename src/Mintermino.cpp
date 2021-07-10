@@ -9,7 +9,6 @@ bool Mintermino :: evaluar() {
     string variablesPosibles = "abcd";
     string letra;
     bool determinados[variablesPosibles.length()];
-    bool result = true;
     llenarListaVariables();
     estandarizar();
     cout << "Formula revisada = " << formulaMintermino << endl;
@@ -21,11 +20,11 @@ bool Mintermino :: evaluar() {
     int j = 0;
     while(j < variables -> longitud()) {
         if(determinados[j] == false)
-            result = false;
+            setValorVerdad(false);;
         j++;
     }
-    cout << "Valor Mintermino = " << result << endl << endl;
-    return result;
+    cout << "Valor Mintermino = " << getValorVerdad() << endl << endl;
+    return getValorVerdad();
 }
 
 void Mintermino :: llenarListaVariables() {
