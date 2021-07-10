@@ -14,7 +14,7 @@ bool Mintermino :: evaluar() {
     cout << "Formula revisada = " << formulaMintermino << endl;
     for(int i = 0; i < variablesPosibles.length(); i++) {
         letra = variablesPosibles[i];
-        determinados[i] = variables -> getNodoV(letra) ->getObj()->getValorVerdad();
+        determinados[i] = variables -> getNodoV(letra) -> getObj() -> getValorVerdad();
     }
     cout << "Valores revisados = " << determinados[0] << determinados[1] << determinados[2] << determinados[3] << endl;
     int j = 0;
@@ -86,6 +86,6 @@ void Mintermino :: estandarizar() {
     formulaMintermino = "";
     for(int i = 0; i < variablesPosibles.length(); i++){
         letraRecorrido = variablesPosibles[i];
-        formulaMintermino += variables -> getNodoV(letraRecorrido) ->getObj()->getLetra();
+        formulaMintermino += variables -> getNodoV(letraRecorrido) -> getObj() -> getLetra();
     }
 }
