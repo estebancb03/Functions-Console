@@ -14,7 +14,7 @@ bool Mintermino :: evaluar() {
     cout << "Formula revisada = " << formulaMintermino << endl;
     for(int i = 0; i < variablesPosibles.length(); i++) {
         letra = variablesPosibles[i];
-        determinados[i] = variables -> getVariableNodo(letra) -> getVariable() -> evaluar();
+        determinados[i] = variables -> getNodoV(letra) ->getObj()->getValorVerdad();
     }
     cout << "Valores revisados = " << determinados[0] << determinados[1] << determinados[2] << determinados[3] << endl;
     int j = 0;
@@ -39,18 +39,18 @@ void Mintermino :: llenarListaVariables() {
         else 
             letra = formulaMintermino[i];
         if(letra.find("a") != string :: npos) {
-            variables -> agregarVariable(new Variable(letra, introducidoA));
+            variables -> agregarObjeto(new Variable(letra, introducidoA));
         }
         else {
             if(letra.find("b") != string :: npos) {
-                variables -> agregarVariable(new Variable(letra, introducidoB));
+                variables -> agregarObjeto(new Variable(letra, introducidoB));
             }
             else {
                 if(letra.find("c") != string :: npos) {
-                    variables -> agregarVariable(new Variable(letra, introducidoC));
+                    variables -> agregarObjeto(new Variable(letra, introducidoC));
                 }
                 else if(letra.find("d") != string :: npos) {
-                    variables -> agregarVariable(new Variable(letra, introducidoD));
+                    variables -> agregarObjeto(new Variable(letra, introducidoD));
                 }
             }
         }
@@ -80,12 +80,12 @@ void Mintermino :: estandarizar() {
         faltantes = averiguaFaltantes();
         for(int i = 0; i < faltantes.length(); i++) {
             letra =  faltantes[i];
-            variables -> agregarVariable(new Variable(letra, true));
+            variables -> agregarObjeto(new Variable(letra, true));
         }
     } 
     formulaMintermino = "";
     for(int i = 0; i < variablesPosibles.length(); i++){
         letraRecorrido = variablesPosibles[i];
-        formulaMintermino += variables -> getVariableNodo(letraRecorrido) -> getVariable() -> getLetra();
+        formulaMintermino += variables -> getNodoV(letraRecorrido) ->getObj()->getLetra();
     }
 }

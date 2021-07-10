@@ -5,7 +5,7 @@ using namespace std;
 template <class T>
 void Lista<T> :: agregarObjeto(T *o) {
     Nodo<T> *temp = cabeza;
-    Nodo<T> *nuevo = new Nodo<T>(o, v);
+    Nodo<T> *nuevo = new Nodo<T>(o);
     if(temp == nullptr)
         cabeza = nuevo;
     else {
