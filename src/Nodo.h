@@ -9,7 +9,7 @@ class Nodo {
     Nodo<T> *siguiente;
     public:
         Nodo(T o, bool vv) { objeto = o; valorVerdad = vv; siguiente = nullptr; };
-        ~Nodo() { delete objeto; delete siguiente; };
+        //~Nodo() { delete objeto; delete siguiente; };
         Nodo<T>* getSiguiente() { return siguiente; };
         T getObj() { return objeto; };
         bool getValorVerdad() { return valorVerdad; };
