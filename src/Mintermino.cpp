@@ -38,22 +38,7 @@ void Mintermino :: llenarListaVariables() {
         }
         else 
             letra = formulaMintermino[i];
-        if(letra.find("a") != string :: npos) {
-            variables -> agregarObjeto(new Variable(letra, introducidoA));
-        }
-        else {
-            if(letra.find("b") != string :: npos) {
-                variables -> agregarObjeto(new Variable(letra, introducidoB));
-            }
-            else {
-                if(letra.find("c") != string :: npos) {
-                    variables -> agregarObjeto(new Variable(letra, introducidoC));
-                }
-                else if(letra.find("d") != string :: npos) {
-                    variables -> agregarObjeto(new Variable(letra, introducidoD));
-                }
-            }
-        }
+        variables -> agregarObjeto(new Variable(letra, introducidos[i]));
     }
 }
 

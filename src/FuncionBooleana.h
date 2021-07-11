@@ -1,20 +1,19 @@
 #ifndef FUNCIONBOOLEANA_H
 #define FUNCIONBOOLEANA_H
-#include <iostream>
 #include "Lista.h"
 #include "Mintermino.h"
+#include <iostream>
+#include <stdio.h>
+#include <string.h>
 using namespace std;
 
 class FuncionBooleana {
     Lista<Mintermino> *listaMinterminos;
     string formulaFuncion;
     bool valorVerdad;
-    bool variableA, variableB, variableC, variableD;
+    bool introducidos[4];
     public: 
-        FuncionBooleana(string ff, bool a, bool b, bool c, bool d) {
-            formulaFuncion = ff; listaMinterminos = new Lista<Mintermino>(); valorVerdad = false;
-            variableA = a; variableB = b; variableC = c, variableD = d;  
-        };
+        FuncionBooleana(string ff, bool i[]) { formulaFuncion = ff; listaMinterminos = new Lista<Mintermino>(); memcpy(introducidos,i, 4 * sizeof(int)); valorVerdad = false; };
         ~FuncionBooleana() { delete listaMinterminos; };
         bool getValorVerdad() { return valorVerdad; };
         string getFormula() { return formulaFuncion; };
