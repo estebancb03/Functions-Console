@@ -3,7 +3,7 @@
 using namespace std;
 
 bool Variable :: evaluar() {
-    if(letra.find("'") != string :: npos) {
+    if(formula.find("'") != string :: npos) {
         if(getValorVerdad())
             setValorVerdad(false);
         else
