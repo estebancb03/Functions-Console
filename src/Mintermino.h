@@ -3,7 +3,6 @@
 #include "Lista.h"
 #include "Variable.h"
 #include <iostream>
-#include <stdio.h>
 using namespace std;
 
 class Mintermino {
@@ -12,7 +11,7 @@ class Mintermino {
     bool valorVerdad;
     string formulaMintermino;
     public:
-        Mintermino(string fmin, bool i[]) { variables = new Lista<Variable>(); formulaMintermino = fmin; memcpy(introducidos,i, 4 * sizeof(int)); valorVerdad = true; };
+        Mintermino(string fmin, bool intro[]) { variables = new Lista<Variable>(); for(int i = 0; i < 4; i++) introducidos[i] = intro[i]; formulaMintermino = fmin; valorVerdad = true; };
         ~Mintermino() { delete variables; };
         bool evaluar();
         void estandarizar();
