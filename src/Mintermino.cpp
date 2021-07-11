@@ -86,6 +86,6 @@ void Mintermino :: estandarizar() {
     formulaMintermino = "";
     for(int i = 0; i < variablesPosibles.length(); i++){
         letraRecorrido = variablesPosibles[i];
-        formulaMintermino += variables -> getNodoV(letraRecorrido) -> getObj() -> getLetra();
+        formulaMintermino += variables -> getNodoV(letraRecorrido) -> getObj() -> getFormula();
     }
 }
