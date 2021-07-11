@@ -7,10 +7,10 @@ class Variable {
     string formula;
     bool valorVerdad;
     public:
-        Variable(string l, bool vv) { formula = l; valorVerdad = vv; };
+        Variable(string f, bool vv) { formula = f; valorVerdad = vv; };
         string getFormula() { return formula; };
         bool getValorVerdad() { return valorVerdad; };
-        void setFormula(string l) { formula = l; };
+        void setFormula(string f) { formula = f; };
         void setValorVerdad(bool vv) { valorVerdad = vv; };
         bool evaluar();
 };
