@@ -69,7 +69,7 @@ bool Lista<T> :: encontrar(string s) {
     bool encontrado = false;
     Nodo<T> *temp = cabeza;
     while(encontrado == false && temp != nullptr) {
-        if(temp -> getObj() -> getLetra().find(s) != string :: npos)
+        if(temp -> getObj() -> getFormula().find(s) != string :: npos)
             encontrado = true;
         temp = temp -> getSiguiente();
     }
