@@ -12,7 +12,6 @@ class Lista {
         ~Lista() { delete cabeza; };
         void agregarObjeto(T *o);
         Nodo<T> *getNodo(string s);
-        Nodo<T> *getNodoV(string s);
         bool encontrar(string s);
         void imprimirLista();
         int longitud();
