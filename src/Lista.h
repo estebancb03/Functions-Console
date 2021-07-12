@@ -37,7 +37,7 @@ void Lista<T> :: imprimirLista() {
         cout << "Lista vacia";
     else {
         while(temp != nullptr) {
-            cout << temp -> getObj() << "->";
+            cout << temp -> getObjeto() << "->";
             temp = temp -> getSiguiente();
         }
         cout << "NULL";
@@ -58,7 +58,7 @@ int Lista<T> :: longitud() {
 template <typename T>
 Nodo<T>* Lista<T> :: getNodo(string s) {
     Nodo<T> *temp = cabeza;
-    while(temp -> getSiguiente() != nullptr && temp -> getObj() -> getFormula().find(s) == string :: npos) {
+    while(temp -> getSiguiente() != nullptr && temp -> getObjeto() -> getFormula().find(s) == string :: npos) {
         temp = temp -> getSiguiente();
     }
     return temp;
@@ -69,7 +69,7 @@ bool Lista<T> :: encontrar(string s) {
     bool encontrado = false;
     Nodo<T> *temp = cabeza;
     while(encontrado == false && temp != nullptr) {
-        if(temp -> getObj() -> getFormula().find(s) != string :: npos)
+        if(temp -> getObjeto() -> getFormula().find(s) != string :: npos)
             encontrado = true;
         temp = temp -> getSiguiente();
     }

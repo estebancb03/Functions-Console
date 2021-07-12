@@ -5,7 +5,6 @@
 using namespace std;
 
 bool Mintermino :: evaluar() {
-    int cont = 0;
     string variablesPosibles = "abcd";
     string letra;
     bool determinados[variablesPosibles.length()];
@@ -14,7 +13,7 @@ bool Mintermino :: evaluar() {
     cout << "Formula revisada = " << formulaMintermino << endl;
     for(int i = 0; i < variablesPosibles.length(); i++) {
         letra = variablesPosibles[i];
-        determinados[i] = variables -> getNodo(letra) -> getObj() -> evaluar();
+        determinados[i] = variables -> getNodo(letra) -> getObjeto() -> evaluar();
     }
     cout << "Valores revisados = " << determinados[0] << determinados[1] << determinados[2] << determinados[3] << endl;
     int j = 0;
@@ -71,6 +70,6 @@ void Mintermino :: estandarizar() {
     formulaMintermino = "";
     for(int i = 0; i < variablesPosibles.length(); i++){
         letraRecorrido = variablesPosibles[i];
-        formulaMintermino += variables -> getNodo(letraRecorrido) -> getObj() -> getFormula();
+        formulaMintermino += variables -> getNodo(letraRecorrido) -> getObjeto() -> getFormula();
     }
 }

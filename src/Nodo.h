@@ -8,9 +8,9 @@ class Nodo {
     Nodo<T> *siguiente;
     public:
         Nodo(T *o) { objeto = o; siguiente = nullptr; };
-        //~Nodo() { delete objeto; delete siguiente; };
+        ~Nodo() { delete objeto; delete siguiente; };
         Nodo<T>* getSiguiente() { return siguiente; };
-        T *getObj() { return objeto; };
+        T *getObjeto() { return objeto; };
         void setSiguiente(Nodo<T> *s) { siguiente = s; };
 };
 
