@@ -27,7 +27,7 @@ bool Mintermino :: evaluar() {
 }
 
 void Mintermino :: llenarListaVariables() {
-    string letra;
+     string letra;
     for(int i = 0; i < formulaMintermino.length(); i++) {
         if(i < formulaMintermino.length() - 1 && !isalpha(formulaMintermino[i + 1])) {
             letra = "";
@@ -37,7 +37,18 @@ void Mintermino :: llenarListaVariables() {
         }
         else 
             letra = formulaMintermino[i];
-        variables -> agregarObjeto(new Variable(letra, introducidos[i]));
+        if(letra.find("a") != string :: npos) 
+            variables -> agregarObjeto(new Variable(letra, introducidos[0]));
+        else {
+            if(letra.find("b") != string :: npos) 
+                variables -> agregarObjeto(new Variable(letra, introducidos[1]));
+            else {
+                if(letra.find("c") != string :: npos) 
+                    variables -> agregarObjeto(new Variable(letra, introducidos[2]));
+                else if(letra.find("d") != string :: npos) 
+                    variables -> agregarObjeto(new Variable(letra, introducidos[3]));
+            }
+        }
     }
 }
 
